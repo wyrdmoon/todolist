@@ -1,29 +1,26 @@
 <template>
   <div id="app">
-    <Login></Login>
+   
       <router-link to="/Login">Login</router-link>|
-      <SignUp></SignUp>
+
       <router-link to='/SignUp'>SignUp</router-link>|
+ 
+      <router-link to='/Home'>Home</router-link>
+      <router-link to='/task-form'>TaskForm</router-link>
+      <router-view></router-view>
+     
       
     </div>
-    
-  
 </template>
+
 <script>
-import Login from "./components/Login.vue";
-import SignUp from "./components/SignUp.vue";
 
 export default {
 name: "landing-page",
-components: {
-    Login,
-    SignUp,
 
-  },
 }
 </script>
-
-<style>
+<style lang="css" scoped>
 #app {
   width: 500px;
   height: 700px;

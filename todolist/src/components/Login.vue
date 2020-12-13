@@ -1,19 +1,19 @@
 <template>
   <div class="Login">
     <p>EMAIL</p>
-    <input type="text" id="email-input" v-model="email" />
+    <v-text-field label= "email" id="login-input" v-model="email" />
     <p>PASSWORD</p>
-    <input type="password" id="password-input" v-model="password" />
+    <v-text-field type="password" label ="password" id="login-input" v-model="password" />
     <h2 @click="loginUser">Login</h2>
     <h3>{{ loginStatus }}</h3>
-    <router-link to="/Home">Home</router-link> |
+   
     <router-link to="/SignUp">Sign Up</router-link>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-import cookies from 'vue-cookies'
+import axios from "axios";
+import cookies from "vue-cookies";
 
 export default {
   name: "Login",
@@ -21,47 +21,40 @@ export default {
     return {
       email: "",
       password: "",
-      loginStatus: "",
-
-
-    }
+      loginStatus: ""
+    };
   },
   methods: {
     loginUser: function() {
-      this.loginStatus = "Loading"
-      axios.request({
-        method: "GET",
-        url: "http://localhost:5000/api/login",
-        headers: {
+      this.loginStatus = "Loading";
+      axios
+        .request({
+          method: "POST",
+          url: "http://localhost:5000/api/login",
+          headers: {
             "Content-Type": "application/json",
-            "X-Api-Key": "wH6jPB8AleilzE7sjqFeARAAfXLKeEpoQKSZgPCpUW9s2"
-
-        },
-        data: {
-          email: this.email,
-          password: this.password,
-
-        }
-      
-      }).then((response) => {
-        cookies.get('loginToken');
-        console.log(response)
-        this.loginStatus ="Success"
-        cookies.set('session', response.data.loginToken);
-        cookies.set('userId', response.data.userId);
-        this.$router.push("/home")
-      }).catch((error) => {
-        console.log(error),
-        this.loginStatus ="Error"
-      })
-     
-      
+            
+          },
+          data: {
+            email: this.email,
+            password: this.password
+          }
+        })
+        .then(response => {
+          cookies.get("loginToken");
+          console.log(response);
+          this.loginStatus = "Success";
+          cookies.set("session", response.data.loginToken);
+          cookies.set("userId", response.data.userId);
+          this.$router.push("/home");
+        })
+        .catch(error => {
+          console.log(error), (this.loginStatus = "Error");
+        });
     }
-  },
- 
+  }
 };
 </script>
-
 
 <style lang="css" scoped>
 .Login {
