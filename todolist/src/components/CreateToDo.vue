@@ -1,6 +1,6 @@
 <template>
   <div class="task">
-    <p>Tasks</p>
+    <h1>Tasks</h1>
     
   
     <v-text-field
@@ -64,6 +64,8 @@ export default {
   display: grid;
   justify-items: center;
   align-items: center;
+  font: Roboto bold;
+  color: white;
 }
 .task-item {
   background: white;

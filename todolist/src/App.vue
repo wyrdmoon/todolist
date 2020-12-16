@@ -14,6 +14,7 @@
 
 <script>
 
+
 export default {
 name: "land-page",
 data() {
@@ -57,6 +58,8 @@ data() {
   
   justify-items: center;
   align-items: center;
+  font: Arial sans-serif;
+
 
 }
 

@@ -58,17 +58,17 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.SignUp {
+.signup {
   width: 500px;
   height: 700px;
-  border: 1px solid black;
+  border: 3px solid black;
   margin: auto;
   display: grid;
   justify-items: center;
   align-items: center;
   grid-template-rows: repeat(auto-fit, minmax, (250px, 1fr));
-  background-color:cornflowerblue;
-  font: Roboto;
+  background-color:grey;
+  font: Roboto bold;
   color: white;
 }
 </style>
