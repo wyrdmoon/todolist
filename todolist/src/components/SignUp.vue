@@ -4,7 +4,7 @@
     <p>Email</p>
     <v-text-field label="email" id="signup-input" v-model="email" />
     <p>Username</p>
-    <v-text-field id="username-input" v-model="username" />
+    <v-text-field label="username" id="username-input" v-model="username" />
     <p>Password</p>
     <v-text-field  label="password" id="signup-input" v-model="password" />
     <button @click="signup">Sign Up</button>
@@ -26,8 +26,7 @@ export default {
   },
   methods: {
     signup: function() {
-      axios
-        .request({
+      axios.request({
           method: "POST",
           url: "http://localhost:5000/api/signup",
           headers: {
@@ -68,7 +67,8 @@ export default {
   justify-items: center;
   align-items: center;
   grid-template-rows: repeat(auto-fit, minmax, (250px, 1fr));
-  background-color: white;
-  font: FixedSys;
+  background-color:cornflowerblue;
+  font: Roboto;
+  color: white;
 }
 </style>

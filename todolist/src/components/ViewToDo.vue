@@ -4,7 +4,7 @@
         <h1 @click="ViewToDo"></h1>
         <div class ="task-container" v-for="item in item" :key="item[4]">
             <h2>{{ item[0] }}</h2>
-            <p>{{ item[1] }}</p>
+            <p>{{ item[2] }}</p>
           
         <delete-to-do :task_id="item[4]"></delete-to-do>
         </div>
