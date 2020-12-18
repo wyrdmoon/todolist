@@ -1,12 +1,11 @@
 <template>
   <div id="app">
-   <a href="https://imgur.com/OzLZ4z2"><img src="https://i.imgur.com/OzLZ4z2.jpg" title="source: imgur.com"/></a>
+   <router-link to='/task-form'> <a href="https://imgur.com/OzLZ4z2"><img src="https://i.imgur.com/OzLZ4z2.jpg" title="source: imgur.com"/></a></router-link> 
    <div class ="app2">
-   <router-link to="/Login">Login</router-link> |
-   <router-link to='/SignUp'>SignUp</router-link> |
-   <router-link to='/task-form'>TaskForm</router-link> |
-   <router-view></router-view> -->
-     
+   <router-link to="/Login"><v-icon>mdi-alpha-l-box-outline</v-icon></router-link> |
+   <router-link to='/SignUp'><v-icon>mdi-alpha-s-box-outline</v-icon></router-link> |
+   <router-view></router-view> 
+ 
       
     </div>
     </div>
@@ -16,10 +15,15 @@
 
 
 export default {
-name: "land-page",
+name: "landing-page",
 data() {
   return {
-   todos: [
+   tasks: [
+     {
+       id: 0,
+       task: "",
+       completed: false
+     },
      {
        id: 1,
        task: "",
@@ -27,11 +31,6 @@ data() {
      },
      {
        id: 2,
-       task: "",
-       completed: false
-     },
-     {
-       id: 3,
        task: "",
        completed: false
      }

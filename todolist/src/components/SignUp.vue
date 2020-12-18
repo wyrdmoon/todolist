@@ -7,7 +7,11 @@
     <v-text-field label="username" id="username-input" v-model="username" />
     <p>Password</p>
     <v-text-field  label="password" id="signup-input" v-model="password" />
-    <button @click="signup">Sign Up</button>
+      <v-btn
+      rounded
+      color="primary"
+      dark
+    ><button @click="signup">Sign Up</button></v-btn>
     
   </div>
 </template>

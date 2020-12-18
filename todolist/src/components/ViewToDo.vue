@@ -1,48 +1,47 @@
 <template>
+  <div>
     <div>
-        <div>
-        <h1 @click="ViewToDo"></h1>
-        <div class ="task-container" v-for="item in item" :key="item[4]">
-            <h2>{{ item[0] }}</h2>
-            <p>{{ item[2] }}</p>
-          
-        <delete-to-do :task_id="item[4]"></delete-to-do>
-        </div>
-        </div>
-
+      <v-btn depressed elevation="2" medium outlined
+        ><button @click="viewToDo()">VIEW TASKS</button></v-btn>
+    >
+      <p v-for="todos in todos" :key="todos.taskId"></p>
+      <p>{{ todos }}</p>
     </div>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
-    export default {
-        data() {
-            return {
-             ViewToDo: "",
-             item: [],
-            }
-        },
-     
-        methods: {
-            viewToDo: function() {
-                axios.request({
-                    url:"http://localhost:5000/api/mvptodolist",
-                    method: "GET",
-                }).then((response) => {
-                    console.log(response);
-                    this.item = response.data
-                }).catch((error) => {
-                    console.log(error);
-                });
-                
-            },
-        },
-    }
+export default {
+  data() {
+    return {
+      ViewToDo: "",
+      todos: [],
+    };
+  },
+
+  methods: {
+    viewToDo: function () {
+      axios
+        .request({
+          url: "http://localhost:5000/api/mvptodolist",
+          method: "GET",
+        })
+        .then((response) => {
+          console.log(response);
+          this.item = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+};
 </script>
 
 <style lang="css" scoped>
 .task-container {
- width: 500px;
+  width: 500px;
   height: 700px;
   border: 1px solid black;
   margin: auto;
@@ -50,5 +49,4 @@ import axios from "axios";
   justify-items: center;
   align-items: center;
 }
-
 </style>

@@ -5,10 +5,19 @@
     <v-text-field label= "email" id="login-input" v-model="email" />
     <p>PASSWORD</p>
     <v-text-field type="password" label ="password" id="login-input" v-model="password" />
-    <h2 @click="loginUser">Login</h2>
+     <v-btn
+      rounded
+      color="primary"
+      dark
+    ><p @click="loginUser">Login</p></v-btn>
     <h3>{{ loginStatus }}</h3>
     
-    <router-link to="/SignUp">Sign Up</router-link>
+       <v-btn
+  depressed
+  elevation="2"
+  medium
+  outlined
+><router-link to="/SignUp">Sign Up</router-link></v-btn>
   </div>
 </template>
 

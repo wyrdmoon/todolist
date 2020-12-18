@@ -1,7 +1,7 @@
 <template>
     <div>
     
-     <button @click="Delete">Delete</button>
+     <v-btn depressed elevation="2" medium outlined><button @click="DeleteToDo()">Delete</button></v-btn>
     </div>
 </template>
 
@@ -9,14 +9,13 @@
 import axios from "axios";
     export default {
         name: "DeleteToDo",
-        props: {
-            task_id: {
-                type: Number,
-                default: 0,
-            },
+        data() {
+            return {
+                id: this.task_id
+            }
         },
         methods: {
-            Delete: function() {
+            DeleteToDo: function() {
                 axios.request({
                     url: "http://localhost:5000/api/mvptodolist",
                     method: "DELETE",

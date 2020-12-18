@@ -1,15 +1,9 @@
 <template>
   <div class="task">
     <h1>Tasks</h1>
-    
-  
-    <v-text-field
-      type="task-input"
-      label="tasks"
-      id="task-input"
-      v-model="task"
-    />
-    <p @click="createToDos">Submit</p>
+   
+    <v-text-field type="task-input" label="tasks" id="task-input" v-model="task"/>
+    <v-btn rounded color="primary" dark><button input id="task-submit" value="Task" @click="createToDos()">Submit</button></v-btn>
   </div>
 </template>
 
@@ -19,15 +13,20 @@ import cookies from "vue-cookies";
 export default {
   data: function () {
     return {
-      
-      task: "",
-      
-     
+      task: [],
     };
   },
+  props: {
+      tasks: {
+        type: Number,
+        default: 0,
+      }
+  },
+
+    
   methods: {
     notifyRoot() {
-      this.$root.$emit("createToDo",{});
+      this.$root.$emit("createToDo", {});
     },
     createToDos: function () {
       axios
@@ -39,11 +38,10 @@ export default {
           },
           data: {
             loginToken: cookies.get("session"),
-            task: this.task,
+            task: this.tasks,
           },
         })
         .then((response) => {
-          
           console.log(response);
           this.notifyRoot();
         })
@@ -52,7 +50,7 @@ export default {
         });
     },
   },
-};
+}
 </script>
 
 <style lang="css" scoped>
