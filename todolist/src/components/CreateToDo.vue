@@ -1,27 +1,25 @@
 <template>
   <div class="task">
     <h1>Tasks</h1>
-   
+  
     <v-text-field type="task-input" label="tasks" id="task-input" v-model="task"/>
     <v-btn rounded color="primary" dark><button input id="task-submit" value="Task" @click="createToDos()">Submit</button></v-btn>
+    
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import cookies from "vue-cookies";
+
 export default {
+  
   data: function () {
     return {
-      task: [],
+      task: "",
     };
   },
-  props: {
-      tasks: {
-        type: Number,
-        default: 0,
-      }
-  },
+
 
     
   methods: {
@@ -38,7 +36,7 @@ export default {
           },
           data: {
             loginToken: cookies.get("session"),
-            task: this.tasks,
+            task: this.task,
           },
         })
         .then((response) => {

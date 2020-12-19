@@ -5,19 +5,9 @@
     <v-text-field label= "email" id="login-input" v-model="email" />
     <p>PASSWORD</p>
     <v-text-field type="password" label ="password" id="login-input" v-model="password" />
-     <v-btn
-      rounded
-      color="primary"
-      dark
-    ><p @click="loginUser">Login</p></v-btn>
+     <v-btn rounded color="primary" dark><p @click="loginUser">Login</p></v-btn>
     <h3>{{ loginStatus }}</h3>
-    
-       <v-btn
-  depressed
-  elevation="2"
-  medium
-  outlined
-><router-link to="/SignUp">Sign Up</router-link></v-btn>
+      <v-btn depressed elevation="2" medium outlined><router-link to="/SignUp">Sign Up</router-link></v-btn>
   </div>
 </template>
 
@@ -60,7 +50,7 @@ export default {
           this.loginStatus = "Success";
           cookies.set("session", response.data.loginToken);
           cookies.set("userId", response.data.userId);
-          this.$router.push("/home");
+          this.$router.push("/task-form");
         })
         .catch(error => {
           console.log(error), (this.loginStatus = "Error");

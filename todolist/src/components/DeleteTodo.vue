@@ -1,19 +1,22 @@
 <template>
     <div>
     
-     <v-btn depressed elevation="2" medium outlined><button @click="DeleteToDo()">Delete</button></v-btn>
+     <v-btn depressed elevation="2" medium outlined><button @click="DeleteToDo()">Finished</button></v-btn>
     </div>
 </template>
 
 <script>
 import axios from "axios";
+import cookies from "vue-cookies";
     export default {
         name: "DeleteToDo",
-        data() {
-            return {
-                id: this.task_id
-            }
-        },
+      props: {
+          taskId: {
+              type: Number,
+              required: true,
+          },
+      },
+    
         methods: {
             DeleteToDo: function() {
                 axios.request({
@@ -23,7 +26,8 @@ import axios from "axios";
                         "Content-Type": "application/json",
                     },
                     data: {
-                        id: this.task_id,
+                        loginToken: cookies.get("session"),
+                        id: this.taskId,
                     }
                 }).then((response) =>{
                     console.log(response)

@@ -5,8 +5,7 @@
    <router-link to="/Login"><v-icon>mdi-alpha-l-box-outline</v-icon></router-link> |
    <router-link to='/SignUp'><v-icon>mdi-alpha-s-box-outline</v-icon></router-link> |
    <router-view></router-view> 
- 
-      
+   
     </div>
     </div>
 </template>

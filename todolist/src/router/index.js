@@ -5,7 +5,7 @@ import Login from "../components/Login.vue";
 import ViewToDo from "../components/ViewToDo";
 import TaskForm from "../views/TaskForm.vue";
 import LoginPage from "../views/LoginPage";
-
+import CreateToDo from "../components/CreateToDo";
 
 Vue.use(VueRouter);
 const routes = [
@@ -34,6 +34,11 @@ const routes = [
     path: "/view-to-do",
     name: "view-to-do",
     component: ViewToDo
+  },
+  {
+    path: "create-to-do",
+    name: "create-to-do",
+    component: CreateToDo
   },
 
 ];
