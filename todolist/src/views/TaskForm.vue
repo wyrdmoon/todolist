@@ -4,9 +4,9 @@
       <!-- <input type="checkbox" id="checkbox" v-model="checked" /> -->
       <!-- <label for="checkbox">{{ checked }}</label> -->
 
-      <v-card elevation="2"><p class="font-weight-black">{{ todo[2] }}</p></v-card>
+      <v-card elevation="2" color=#F44336><p class="font-weight-black">{{ todo[2] }}</p></v-card>
       
-      <v-card elevation="2" color=#D50000><p class="font-weight-black">{{ todo[3] }}</p></v-card>
+      <v-card elevation="2" color=#FFFF00><p class="font-color-black">{{ todo[3] }}</p></v-card>
       <flip-countdown :deadline="getTime()" :showDays= "false"></flip-countdown>
       <delete-to-do :taskId="todo[0]"></delete-to-do>
     </div>

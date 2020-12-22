@@ -1,7 +1,9 @@
 <template>
     <div>
     
-     <v-btn depressed elevation="2" medium outlined><button @click="DeleteToDo()">Finished</button></v-btn>
+     <v-btn depressed elevation="2" medium color=#FFFF00><button @click="DeleteToDo()">Finished</button></v-btn>
+     <v-btn depressed elevation="2" medium color=#F44336 v-on:click="counter += 20">Add 20 points</v-btn>
+     <p>{{counter}}</p>
     </div>
 </template>
 
@@ -15,6 +17,11 @@ import cookies from "vue-cookies";
               type: Number,
               required: true,
           },
+      },
+      data() {
+          return {
+              counter: 0
+          }
       },
     
         methods: {
