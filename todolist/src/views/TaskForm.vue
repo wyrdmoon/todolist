@@ -3,15 +3,14 @@
     <div v-for="todo in tasks" :key="todo[0]">
       <!-- <input type="checkbox" id="checkbox" v-model="checked" /> -->
       <!-- <label for="checkbox">{{ checked }}</label> -->
-      <v-card elevation="2" loading
-        ><p>{{ todo[2] }}</p></v-card
-      >
-      <v-card elevation="2" loading
-        ><p>{{ todo[3] }}</p></v-card
-      >
+
+      <v-card elevation="2"><p class="font-weight-black">{{ todo[2] }}</p></v-card>
+      
+      <v-card elevation="2" color=#D50000><p class="font-weight-black">{{ todo[3] }}</p></v-card>
+      <flip-countdown :deadline="getTime()" :showDays= "false"></flip-countdown>
       <delete-to-do :taskId="todo[0]"></delete-to-do>
     </div>
-    <Countdown deadline ="600"></Countdown>
+    
     <create-to-do></create-to-do>
     <view-to-do></view-to-do>
   </div>
@@ -19,17 +18,18 @@
 
 <script>
 import axios from "axios";
-import Countdown from 'vuejs-countdown'
+import FlipCountdown from "vue2-flip-countdown";
 import CreateToDo from "../components/CreateToDo.vue";
 import ViewToDo from "../components/ViewToDo.vue";
 import DeleteToDo from "../components/DeleteTodo.vue";
 export default {
   name: "TaskForm",
   components: {
-    Countdown,
+    FlipCountdown,
     CreateToDo,
     ViewToDo,
     DeleteToDo,
+   
   },
   props: {
     task: {
@@ -47,6 +47,12 @@ export default {
     this.$root.$on("createToDo", this.getToDos);
   },
   methods: {
+    getTime: function() {
+            let d = new Date()
+            d.setTime(d.getTime()+d.getTimezoneOffset()*60*1000)
+            d.setHours(d.getHours()+1-14)
+            return d.toISOString().replace("T"," ").replace("Z","")
+    },
     getToDos: function () {
       axios
         .request({

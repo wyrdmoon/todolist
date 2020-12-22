@@ -61,10 +61,10 @@ export default {
   justify-items: center;
   align-items: center;
   font: Roboto bold;
-  color: white;
+  color: grey;
 }
 .task-item {
-  background: white;
+  background: grey;
   padding: 10px;
   border-bottom: 2px grey dotted;
 }

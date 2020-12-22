@@ -1,9 +1,7 @@
 <template>
   <div>
     <div>
-      <v-btn depressed elevation="2" medium outlined
-        ><button @click="viewToDo()">VIEW TASKS</button></v-btn>
-    
+     
       <p v-for="todos in todos" :key="todos.taskId"></p>
       <p>{{ todos }}</p>
     </div>
@@ -48,5 +46,6 @@ export default {
   display: grid;
   justify-items: center;
   align-items: center;
+  background: grey;
 }
 </style>
